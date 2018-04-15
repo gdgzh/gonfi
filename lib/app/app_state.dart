@@ -5,8 +5,12 @@ import 'package:meta/meta.dart';
 class AppState {
   final List<Speaker> speakers;
   final List<Session> sessions;
+  final ActivePage activePage;
 
-  AppState({this.speakers = const [], this.sessions = const []});
+  AppState(
+      {this.speakers = const [],
+      this.sessions = const [],
+      this.activePage = ActivePage.sessions});
 
   AppState copyWith({
     List<Speaker> speakers,

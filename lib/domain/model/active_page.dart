@@ -1,0 +1,4 @@
+enum ActivePage {
+  sessions,
+  speakers,
+}

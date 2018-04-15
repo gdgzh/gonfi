@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:gonfi/app/app_redux.dart';
 import 'package:gonfi/app/routes.dart';
+import 'package:gonfi/app/screens/main_tabs_screen.dart';
 import 'package:gonfi/app/theme.dart';
 import 'package:gonfi/pages/session/session_list_container.dart';
 import 'package:redux/redux.dart';
@@ -20,9 +21,10 @@ class MyApp extends StatelessWidget {
       child: new MaterialApp(
         title: 'Flutter Demo',
         theme: GonfiThemeData,
-        home: new SessionListContainer(),
+        home: new MainTabScreen(),
         routes: {
           GonfiRoutes.speakers: (BuildContext context) {
+            // TODO: Add Speakers here...
             return new StoreBuilder<AppState>(
                 builder: (BuildContext context, Store<AppState> store) {
               return new SessionListContainer();

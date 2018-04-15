@@ -5,7 +5,7 @@ import 'package:gonfi/pages/speaker/speaker_item.dart';
 class SpeakerList extends StatelessWidget {
   final List<Speaker> speakers;
 
-  SpeakerList(this.speakers);
+  SpeakerList({this.speakers});
 
   @override
   Widget build(BuildContext context) {

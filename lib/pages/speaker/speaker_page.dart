@@ -17,7 +17,7 @@ class SpeakersPage extends StatelessWidget {
           appBar: new AppBar(
             title: new Text('Speakers'),
           ),
-          body: new SpeakerList(vm),
+          body: new SpeakerList(speakers: vm),
         );
       },
     );
