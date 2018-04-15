@@ -48,8 +48,13 @@ class Company {
   final String name;
   final String url;
   final String imageUri;
+  final Address address;
 
-  Company({@required this.name, @required this.url, @required this.imageUri});
+  Company(
+      {@required this.name,
+      @required this.url,
+      @required this.imageUri,
+      this.address});
 }
 
 @immutable

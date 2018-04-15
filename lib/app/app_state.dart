@@ -4,7 +4,9 @@ import 'package:meta/meta.dart';
 @immutable
 class AppState {
   final List<Speaker> speakers;
-  AppState({this.speakers = const []});
+  final List<Session> sessions;
+
+  AppState({this.speakers = const [], this.sessions = const []});
 
   AppState copyWith({
     List<Speaker> speakers,
@@ -14,9 +16,13 @@ class AppState {
     );
   }
 
-  @override
-  String toString() {
-    return 'AppState{speakers: $speakers}';
+  AppState copyWithSession({
+    @required Session session,
+  }) {
+    return new AppState(
+      speakers: this.speakers,
+      sessions: session ?? this.sessions,
+    );
   }
 
   @override
@@ -24,8 +30,14 @@ class AppState {
       identical(this, other) ||
       other is AppState &&
           runtimeType == other.runtimeType &&
-          speakers == other.speakers;
+          speakers == other.speakers &&
+          sessions == other.sessions;
 
   @override
-  int get hashCode => speakers.hashCode;
+  int get hashCode => speakers.hashCode ^ sessions.hashCode;
+
+  @override
+  String toString() {
+    return 'AppState{speakers: $speakers, sessions: $sessions}';
+  }
 }
