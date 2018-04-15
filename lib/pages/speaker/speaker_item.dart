@@ -12,12 +12,12 @@ class SpeakerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return new Column(
       children: [
         new Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Card(
-            child: Column(
+          child: new Card(
+            child: new Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 buildHeader(),
@@ -33,9 +33,9 @@ class SpeakerItem extends StatelessWidget {
   }
 
   Container buildHeader() {
-    return Container(
+    return new Container(
       height: 256.0,
-      child: Stack(
+      child: new Stack(
         children: <Widget>[
           buildImage(),
           buildGradient(),
@@ -47,7 +47,7 @@ class SpeakerItem extends StatelessWidget {
   }
 
   Container buildGradient() {
-    return Container(
+    return new Container(
       decoration: new BoxDecoration(
           gradient: new LinearGradient(
               begin: Alignment.bottomRight,
@@ -56,7 +56,7 @@ class SpeakerItem extends StatelessWidget {
   }
 
   Container buildImage() {
-    return Container(
+    return new Container(
       decoration: new BoxDecoration(
         image: new DecorationImage(
           fit: BoxFit.cover,
@@ -72,7 +72,7 @@ class SpeakerItem extends StatelessWidget {
         const TextStyle(fontWeight: FontWeight.w700, color: Colors.white);
     return new Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Row(
+      child: new Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
@@ -91,11 +91,11 @@ class SpeakerItem extends StatelessWidget {
   }
 
   Widget buildBottomImageText() {
-    const nameStyle = TextStyle(fontSize: 24.0, color: Colors.white);
-    const nameTitle = TextStyle(fontSize: 14.0, color: Colors.white);
+    const nameStyle = const TextStyle(fontSize: 24.0, color: Colors.white);
+    const nameTitle = const TextStyle(fontSize: 14.0, color: Colors.white);
     return new Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Column(
+      child: new Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           new Text(
@@ -118,7 +118,7 @@ class SpeakerItem extends StatelessWidget {
 
     return new Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Row(
+      child: new Row(
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           new Expanded(
@@ -127,7 +127,7 @@ class SpeakerItem extends StatelessWidget {
               children: <Widget>[
                 new Center(
                   child: new Container(
-                    child: Image.network(speaker.company.imageUri),
+                    child: new Image.network(speaker.company.imageUri),
                     height: 25.0,
                   ),
                 ),
