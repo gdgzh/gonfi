@@ -9,8 +9,8 @@ class SpeakerList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemBuilder: (context, index) => SpeakerItem(speakers[index]),
+    return new ListView.builder(
+        itemBuilder: (context, index) => new SpeakerItem(speakers[index]),
         itemCount: speakers.length);
   }
 }
