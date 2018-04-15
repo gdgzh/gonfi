@@ -1,29 +1,34 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:gonfi/domain/models.dart';
 import 'package:gonfi/widget/tag.dart';
 
 const String _DOT = "\u2022";
 
 class SpeakerItem extends StatelessWidget {
+  final Speaker speaker;
+
+  SpeakerItem(this.speaker);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: AppBar(
-        title: new Text("Speaker"),
-      ),
-      body: new Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: new Card(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              buildHeader(),
-              buildContet(),
-              new Divider(),
-              buildBottom(),
-            ],
+    return Column(
+      children: [
+        new Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Card(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                buildHeader(),
+                buildContet(),
+                new Divider(),
+                buildBottom(),
+              ],
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 
@@ -56,8 +61,7 @@ class SpeakerItem extends StatelessWidget {
         image: new DecorationImage(
           fit: BoxFit.cover,
           alignment: FractionalOffset.center,
-          image: new NetworkImage(
-              "https://2016.devfest.ch/images/people/hasan_hosgel.jpg"),
+          image: new CachedNetworkImageProvider(speaker.imageUri),
         ),
       ),
     );
@@ -95,11 +99,11 @@ class SpeakerItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           new Text(
-            "Hasan Hosgel",
+            '${speaker.name} ${speaker.lastName}',
             style: nameStyle,
           ),
           new Text(
-            "Berlin, Germany",
+            '${speaker.address.city}, ${speaker.address.country}',
             style: nameTitle,
           )
         ],
@@ -108,6 +112,10 @@ class SpeakerItem extends StatelessWidget {
   }
 
   Widget buildContet() {
+    List<Widget> skills = new List()..add(new Text("Skills:"));
+    List<Widget> tags = createTags(speaker.skills);
+    skills.addAll(tags);
+
     return new Padding(
       padding: const EdgeInsets.all(16.0),
       child: Row(
@@ -119,8 +127,7 @@ class SpeakerItem extends StatelessWidget {
               children: <Widget>[
                 new Center(
                   child: new Container(
-                    child: Image.network(
-                        "https://2016.devfest.ch/images/logos/immo_scout_24.png"),
+                    child: Image.network(speaker.company.imageUri),
                     height: 25.0,
                   ),
                 ),
@@ -128,22 +135,25 @@ class SpeakerItem extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(
                       vertical: 8.0, horizontal: 0.0),
                   child: new Row(
-                    children: <Widget>[
-                      new Text("Skills:"),
-                      new Tag(text: "Mobile", color: Colors.lightGreen),
-                      new Tag(text: "Android", color: Colors.green),
-                      new Tag(text: "Performance", color: Colors.orange),
-                    ],
+                    children: skills,
                   ),
                 ),
-                new Text(
-                    "Hasan Hoşgel is a dedicated Android developer with over fiveteen years of professional programming experience.")
+                new Text(speaker.about)
               ],
             ),
           ),
         ],
       ),
     );
+  }
+
+  List<Tag> createTags(List<Skill> skills) {
+    List<Tag> tags = new List();
+    skills.forEach((skill) => tags.add(new Tag(
+          text: skill.name,
+          color: new Color(skill.color),
+        )));
+    return tags;
   }
 
   Widget buildBottom() {
