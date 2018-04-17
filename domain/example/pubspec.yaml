@@ -1,0 +1,8 @@
+name: example
+desc: 'Just an example'
+dependencies:
+  gonfi_domain:
+    path: ../
+
+environment:
+  sdk: '>=2.0.0-dev <2.0.0'
