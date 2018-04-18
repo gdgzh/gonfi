@@ -20,16 +20,34 @@ class TabSelector extends StatelessWidget {
           onTap: vm.onTabSelected,
           items: ActivePage.values.map((tab) {
             return new BottomNavigationBarItem(
-                icon: new Icon(
-                  tab == ActivePage.sessions ? Icons.list : Icons.show_chart,
-                ),
-                title: new Text(
-                  tab == ActivePage.sessions ? "ZZZ" : "XXX",
-                ));
+                icon: _iconForActivePage(tab),
+                title: new Text(_titleForActivePage(tab)));
           }).toList(),
         );
       },
     );
+  }
+
+  String _titleForActivePage(ActivePage page) {
+    switch (page) {
+      case ActivePage.sessions:
+        return "Sessions";
+      case ActivePage.speakers:
+        return "Speakers";
+      case ActivePage.team:
+        return "Team";
+    }
+  }
+
+  Widget _iconForActivePage(ActivePage page) {
+    switch (page) {
+      case ActivePage.team:
+        return Icon(Icons.add);
+      case ActivePage.speakers:
+        return Icon(Icons.list);
+      case ActivePage.sessions:
+        return Icon(Icons.show_chart);
+    }
   }
 }
 

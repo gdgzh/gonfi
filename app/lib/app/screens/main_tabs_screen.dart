@@ -4,6 +4,7 @@ import 'package:gonfi/app/containers/main_tabs_container.dart';
 import 'package:gonfi/app/containers/tab_selector.dart';
 import 'package:gonfi/pages/session/session_list_container.dart';
 import 'package:gonfi/pages/speaker/speaker_page.dart';
+import 'package:gonfi/pages/team/team_screen.dart';
 
 class MainTabScreen extends StatelessWidget {
   MainTabScreen();
@@ -27,5 +28,7 @@ Widget _activePageContent(ActivePage activePage) {
       return SessionListContainer();
     case ActivePage.speakers:
       return SpeakersPage();
+    case ActivePage.team:
+      return TeamScreen();
   }
 }
