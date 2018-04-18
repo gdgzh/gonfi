@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of serializers;
+part of 'serializers.dart';
 
 // **************************************************************************
 // Generator: BuiltValueGenerator
@@ -14,14 +14,15 @@ part of serializers;
 // ignore_for_file: prefer_expression_function_bodies
 // ignore_for_file: sort_constructors_first
 
-// Error: Stack Overflow
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Address.serializer)
       ..add(Company.serializer)
       ..add(Room.serializer)
       ..add(Session.serializer)
       ..add(Skill.serializer)
+      ..add(SocialMediaProfile.serializer)
       ..add(Speaker.serializer)
+      ..add(TeamMember.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Skill)]),
           () => new ListBuilder<Skill>())
@@ -29,12 +30,21 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(Tags)]),
           () => new ListBuilder<Tags>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(Session)]),
-          () => new ListBuilder<Session>())
+          const FullType(BuiltList, const [const FullType(SocialMediaProfile)]),
+          () => new ListBuilder<SocialMediaProfile>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Tags)]),
+          () => new ListBuilder<Tags>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(SocialMediaProfile)]),
           () => new ListBuilder<SocialMediaProfile>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Tags)]),
-          () => new ListBuilder<Tags>()))
+          () => new ListBuilder<Tags>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Speaker)]),
+          () => new ListBuilder<Speaker>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>()))
     .build();

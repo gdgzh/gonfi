@@ -24,7 +24,7 @@ abstract class Session implements Built<Session, SessionBuilder> {
   @nullable
   BuiltList<String> get tags;
 
-  factory Session([updates(SessionBuilder builder)]) = _$Session;
+  factory Session([updates(SessionBuilder b)]) = _$Session;
 
   static Serializer<Session> get serializer => _$sessionSerializer;
 }

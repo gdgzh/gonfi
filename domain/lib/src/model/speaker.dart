@@ -23,8 +23,6 @@ abstract class Speaker implements Built<Speaker, SpeakerBuilder> {
   @nullable
   Company get company;
   @nullable
-  BuiltList<Session> get sessions;
-  @nullable
   BuiltList<SocialMediaProfile> get socialMediaProfiles;
 
   factory Speaker([updates(SpeakerBuilder b)]) = _$Speaker;
@@ -33,7 +31,19 @@ abstract class Speaker implements Built<Speaker, SpeakerBuilder> {
 }
 
 @immutable
-class SocialMediaProfile {}
+class SocialMediaProfile extends EnumClass {
+  static Serializer<SocialMediaProfile> get serializer =>
+      _$socialMediaProfileSerializer;
+
+  static const SocialMediaProfile twitter = _$twitter;
+  static const SocialMediaProfile facebook = _$facebook;
+  static const SocialMediaProfile linkedin = _$linkedin;
+
+  const SocialMediaProfile._(String name) : super(name);
+
+  static BuiltSet<SocialMediaProfile> get values => _$values;
+  static SocialMediaProfile valueOf(String name) => _$valueOf(name);
+}
 
 @immutable
 class Tags {

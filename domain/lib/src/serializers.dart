@@ -1,9 +1,8 @@
-library serializers;
-
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:gonfi_domain/models.dart';
+import 'package:gonfi_domain/src/model/team_member.dart';
 
 part 'serializers.g.dart';
 
@@ -12,6 +11,7 @@ part 'serializers.g.dart';
   Company,
   Skill,
   Room,
+  TeamMember,
   Session,
   Speaker,
 ])

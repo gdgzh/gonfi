@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'speaker.dart';
+part of 'team_member.dart';
 
 // **************************************************************************
 // Generator: BuiltValueGenerator
@@ -14,42 +14,16 @@ part of 'speaker.dart';
 // ignore_for_file: prefer_expression_function_bodies
 // ignore_for_file: sort_constructors_first
 
-const SocialMediaProfile _$twitter = const SocialMediaProfile._('twitter');
-const SocialMediaProfile _$facebook = const SocialMediaProfile._('facebook');
-const SocialMediaProfile _$linkedin = const SocialMediaProfile._('linkedin');
+Serializer<TeamMember> _$teamMemberSerializer = new _$TeamMemberSerializer();
 
-SocialMediaProfile _$valueOf(String name) {
-  switch (name) {
-    case 'twitter':
-      return _$twitter;
-    case 'facebook':
-      return _$facebook;
-    case 'linkedin':
-      return _$linkedin;
-    default:
-      throw new ArgumentError(name);
-  }
-}
-
-final BuiltSet<SocialMediaProfile> _$values =
-    new BuiltSet<SocialMediaProfile>(const <SocialMediaProfile>[
-  _$twitter,
-  _$facebook,
-  _$linkedin,
-]);
-
-Serializer<Speaker> _$speakerSerializer = new _$SpeakerSerializer();
-Serializer<SocialMediaProfile> _$socialMediaProfileSerializer =
-    new _$SocialMediaProfileSerializer();
-
-class _$SpeakerSerializer implements StructuredSerializer<Speaker> {
+class _$TeamMemberSerializer implements StructuredSerializer<TeamMember> {
   @override
-  final Iterable<Type> types = const [Speaker, _$Speaker];
+  final Iterable<Type> types = const [TeamMember, _$TeamMember];
   @override
-  final String wireName = 'Speaker';
+  final String wireName = 'TeamMember';
 
   @override
-  Iterable serialize(Serializers serializers, Speaker object,
+  Iterable serialize(Serializers serializers, TeamMember object,
       {FullType specifiedType: FullType.unspecified}) {
     final result = <Object>[
       'name',
@@ -58,6 +32,12 @@ class _$SpeakerSerializer implements StructuredSerializer<Speaker> {
       serializers.serialize(object.lastName,
           specifiedType: const FullType(String)),
     ];
+    if (object.role != null) {
+      result
+        ..add('role')
+        ..add(serializers.serialize(object.role,
+            specifiedType: const FullType(String)));
+    }
     if (object.imageUri != null) {
       result
         ..add('imageUri')
@@ -69,13 +49,6 @@ class _$SpeakerSerializer implements StructuredSerializer<Speaker> {
         ..add('about')
         ..add(serializers.serialize(object.about,
             specifiedType: const FullType(String)));
-    }
-    if (object.skills != null) {
-      result
-        ..add('skills')
-        ..add(serializers.serialize(object.skills,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(Skill)])));
     }
     if (object.tags != null) {
       result
@@ -108,9 +81,9 @@ class _$SpeakerSerializer implements StructuredSerializer<Speaker> {
   }
 
   @override
-  Speaker deserialize(Serializers serializers, Iterable serialized,
+  TeamMember deserialize(Serializers serializers, Iterable serialized,
       {FullType specifiedType: FullType.unspecified}) {
-    final result = new SpeakerBuilder();
+    final result = new TeamMemberBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -126,6 +99,10 @@ class _$SpeakerSerializer implements StructuredSerializer<Speaker> {
           result.lastName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'role':
+          result.role = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
         case 'imageUri':
           result.imageUri = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
@@ -133,12 +110,6 @@ class _$SpeakerSerializer implements StructuredSerializer<Speaker> {
         case 'about':
           result.about = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
-          break;
-        case 'skills':
-          result.skills.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(Skill)]))
-              as BuiltList);
           break;
         case 'tags':
           result.tags.replace(serializers.deserialize(value,
@@ -167,35 +138,17 @@ class _$SpeakerSerializer implements StructuredSerializer<Speaker> {
   }
 }
 
-class _$SocialMediaProfileSerializer
-    implements PrimitiveSerializer<SocialMediaProfile> {
-  @override
-  final Iterable<Type> types = const <Type>[SocialMediaProfile];
-  @override
-  final String wireName = 'SocialMediaProfile';
-
-  @override
-  Object serialize(Serializers serializers, SocialMediaProfile object,
-          {FullType specifiedType: FullType.unspecified}) =>
-      object.name;
-
-  @override
-  SocialMediaProfile deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType: FullType.unspecified}) =>
-      SocialMediaProfile.valueOf(serialized as String);
-}
-
-class _$Speaker extends Speaker {
+class _$TeamMember extends TeamMember {
   @override
   final String name;
   @override
   final String lastName;
   @override
+  final String role;
+  @override
   final String imageUri;
   @override
   final String about;
-  @override
-  final BuiltList<Skill> skills;
   @override
   final BuiltList<Tags> tags;
   @override
@@ -205,41 +158,41 @@ class _$Speaker extends Speaker {
   @override
   final BuiltList<SocialMediaProfile> socialMediaProfiles;
 
-  factory _$Speaker([void updates(SpeakerBuilder b)]) =>
-      (new SpeakerBuilder()..update(updates)).build();
+  factory _$TeamMember([void updates(TeamMemberBuilder b)]) =>
+      (new TeamMemberBuilder()..update(updates)).build();
 
-  _$Speaker._(
+  _$TeamMember._(
       {this.name,
       this.lastName,
+      this.role,
       this.imageUri,
       this.about,
-      this.skills,
       this.tags,
       this.address,
       this.company,
       this.socialMediaProfiles})
       : super._() {
-    if (name == null) throw new BuiltValueNullFieldError('Speaker', 'name');
+    if (name == null) throw new BuiltValueNullFieldError('TeamMember', 'name');
     if (lastName == null)
-      throw new BuiltValueNullFieldError('Speaker', 'lastName');
+      throw new BuiltValueNullFieldError('TeamMember', 'lastName');
   }
 
   @override
-  Speaker rebuild(void updates(SpeakerBuilder b)) =>
+  TeamMember rebuild(void updates(TeamMemberBuilder b)) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SpeakerBuilder toBuilder() => new SpeakerBuilder()..replace(this);
+  TeamMemberBuilder toBuilder() => new TeamMemberBuilder()..replace(this);
 
   @override
   bool operator ==(dynamic other) {
     if (identical(other, this)) return true;
-    if (other is! Speaker) return false;
+    if (other is! TeamMember) return false;
     return name == other.name &&
         lastName == other.lastName &&
+        role == other.role &&
         imageUri == other.imageUri &&
         about == other.about &&
-        skills == other.skills &&
         tags == other.tags &&
         address == other.address &&
         company == other.company &&
@@ -255,9 +208,9 @@ class _$Speaker extends Speaker {
                     $jc(
                         $jc(
                             $jc($jc($jc(0, name.hashCode), lastName.hashCode),
-                                imageUri.hashCode),
-                            about.hashCode),
-                        skills.hashCode),
+                                role.hashCode),
+                            imageUri.hashCode),
+                        about.hashCode),
                     tags.hashCode),
                 address.hashCode),
             company.hashCode),
@@ -266,12 +219,12 @@ class _$Speaker extends Speaker {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Speaker')
+    return (newBuiltValueToStringHelper('TeamMember')
           ..add('name', name)
           ..add('lastName', lastName)
+          ..add('role', role)
           ..add('imageUri', imageUri)
           ..add('about', about)
-          ..add('skills', skills)
           ..add('tags', tags)
           ..add('address', address)
           ..add('company', company)
@@ -280,8 +233,8 @@ class _$Speaker extends Speaker {
   }
 }
 
-class SpeakerBuilder implements Builder<Speaker, SpeakerBuilder> {
-  _$Speaker _$v;
+class TeamMemberBuilder implements Builder<TeamMember, TeamMemberBuilder> {
+  _$TeamMember _$v;
 
   String _name;
   String get name => _$this._name;
@@ -291,6 +244,10 @@ class SpeakerBuilder implements Builder<Speaker, SpeakerBuilder> {
   String get lastName => _$this._lastName;
   set lastName(String lastName) => _$this._lastName = lastName;
 
+  String _role;
+  String get role => _$this._role;
+  set role(String role) => _$this._role = role;
+
   String _imageUri;
   String get imageUri => _$this._imageUri;
   set imageUri(String imageUri) => _$this._imageUri = imageUri;
@@ -298,10 +255,6 @@ class SpeakerBuilder implements Builder<Speaker, SpeakerBuilder> {
   String _about;
   String get about => _$this._about;
   set about(String about) => _$this._about = about;
-
-  ListBuilder<Skill> _skills;
-  ListBuilder<Skill> get skills => _$this._skills ??= new ListBuilder<Skill>();
-  set skills(ListBuilder<Skill> skills) => _$this._skills = skills;
 
   ListBuilder<Tags> _tags;
   ListBuilder<Tags> get tags => _$this._tags ??= new ListBuilder<Tags>();
@@ -322,15 +275,15 @@ class SpeakerBuilder implements Builder<Speaker, SpeakerBuilder> {
           ListBuilder<SocialMediaProfile> socialMediaProfiles) =>
       _$this._socialMediaProfiles = socialMediaProfiles;
 
-  SpeakerBuilder();
+  TeamMemberBuilder();
 
-  SpeakerBuilder get _$this {
+  TeamMemberBuilder get _$this {
     if (_$v != null) {
       _name = _$v.name;
       _lastName = _$v.lastName;
+      _role = _$v.role;
       _imageUri = _$v.imageUri;
       _about = _$v.about;
-      _skills = _$v.skills?.toBuilder();
       _tags = _$v.tags?.toBuilder();
       _address = _$v.address?.toBuilder();
       _company = _$v.company?.toBuilder();
@@ -341,27 +294,27 @@ class SpeakerBuilder implements Builder<Speaker, SpeakerBuilder> {
   }
 
   @override
-  void replace(Speaker other) {
+  void replace(TeamMember other) {
     if (other == null) throw new ArgumentError.notNull('other');
-    _$v = other as _$Speaker;
+    _$v = other as _$TeamMember;
   }
 
   @override
-  void update(void updates(SpeakerBuilder b)) {
+  void update(void updates(TeamMemberBuilder b)) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$Speaker build() {
-    _$Speaker _$result;
+  _$TeamMember build() {
+    _$TeamMember _$result;
     try {
       _$result = _$v ??
-          new _$Speaker._(
+          new _$TeamMember._(
               name: name,
               lastName: lastName,
+              role: role,
               imageUri: imageUri,
               about: about,
-              skills: _skills?.build(),
               tags: _tags?.build(),
               address: _address?.build(),
               company: _company?.build(),
@@ -369,8 +322,6 @@ class SpeakerBuilder implements Builder<Speaker, SpeakerBuilder> {
     } catch (_) {
       String _$failedField;
       try {
-        _$failedField = 'skills';
-        _skills?.build();
         _$failedField = 'tags';
         _tags?.build();
         _$failedField = 'address';
@@ -381,7 +332,7 @@ class SpeakerBuilder implements Builder<Speaker, SpeakerBuilder> {
         _socialMediaProfiles?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'Speaker', _$failedField, e.toString());
+            'TeamMember', _$failedField, e.toString());
       }
       rethrow;
     }
