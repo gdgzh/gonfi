@@ -38,6 +38,21 @@ class _$SessionSerializer implements StructuredSerializer<Session> {
       'topic',
       serializers.serialize(object.topic,
           specifiedType: const FullType(String)),
+      'language',
+      serializers.serialize(object.language,
+          specifiedType: const FullType(String)),
+      'room',
+      serializers.serialize(object.room, specifiedType: const FullType(Room)),
+      'date',
+      serializers.serialize(object.date,
+          specifiedType: const FullType(DateTime)),
+      'sessionLevel',
+      serializers.serialize(object.sessionLevel,
+          specifiedType: const FullType(SessionLevel)),
+      'tags',
+      serializers.serialize(object.tags,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(String)])),
     ];
 
     return result;
@@ -70,6 +85,28 @@ class _$SessionSerializer implements StructuredSerializer<Session> {
           result.topic = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'language':
+          result.language = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'room':
+          result.room.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Room)) as Room);
+          break;
+        case 'date':
+          result.date = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime;
+          break;
+        case 'sessionLevel':
+          result.sessionLevel = serializers.deserialize(value,
+              specifiedType: const FullType(SessionLevel)) as SessionLevel;
+          break;
+        case 'tags':
+          result.tags.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList);
+          break;
       }
     }
 
@@ -77,130 +114,6 @@ class _$SessionSerializer implements StructuredSerializer<Session> {
   }
 }
 
-class _$Session extends Session {
-  @override
-  final String title;
-  @override
-  final String description;
-  @override
-  final Speaker speaker;
-  @override
-  final String topic;
-
-  factory _$Session([void updates(SessionBuilder b)]) =>
-      (new SessionBuilder()..update(updates)).build();
-
-  _$Session._({this.title, this.description, this.speaker, this.topic})
-      : super._() {
-    if (title == null) throw new BuiltValueNullFieldError('Session', 'title');
-    if (description == null)
-      throw new BuiltValueNullFieldError('Session', 'description');
-    if (speaker == null)
-      throw new BuiltValueNullFieldError('Session', 'speaker');
-    if (topic == null) throw new BuiltValueNullFieldError('Session', 'topic');
-  }
-
-  @override
-  Session rebuild(void updates(SessionBuilder b)) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  SessionBuilder toBuilder() => new SessionBuilder()..replace(this);
-
-  @override
-  bool operator ==(dynamic other) {
-    if (identical(other, this)) return true;
-    if (other is! Session) return false;
-    return title == other.title &&
-        description == other.description &&
-        speaker == other.speaker &&
-        topic == other.topic;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc(
-        $jc($jc($jc(0, title.hashCode), description.hashCode),
-            speaker.hashCode),
-        topic.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper('Session')
-          ..add('title', title)
-          ..add('description', description)
-          ..add('speaker', speaker)
-          ..add('topic', topic))
-        .toString();
-  }
-}
-
-class SessionBuilder implements Builder<Session, SessionBuilder> {
-  _$Session _$v;
-
-  String _title;
-  String get title => _$this._title;
-  set title(String title) => _$this._title = title;
-
-  String _description;
-  String get description => _$this._description;
-  set description(String description) => _$this._description = description;
-
-  SpeakerBuilder _speaker;
-  SpeakerBuilder get speaker => _$this._speaker ??= new SpeakerBuilder();
-  set speaker(SpeakerBuilder speaker) => _$this._speaker = speaker;
-
-  String _topic;
-  String get topic => _$this._topic;
-  set topic(String topic) => _$this._topic = topic;
-
-  SessionBuilder();
-
-  SessionBuilder get _$this {
-    if (_$v != null) {
-      _title = _$v.title;
-      _description = _$v.description;
-      _speaker = _$v.speaker?.toBuilder();
-      _topic = _$v.topic;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(Session other) {
-    if (other == null) throw new ArgumentError.notNull('other');
-    _$v = other as _$Session;
-  }
-
-  @override
-  void update(void updates(SessionBuilder b)) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$Session build() {
-    _$Session _$result;
-    try {
-      _$result = _$v ??
-          new _$Session._(
-              title: title,
-              description: description,
-              speaker: speaker.build(),
-              topic: topic);
-    } catch (_) {
-      String _$failedField;
-      try {
-        _$failedField = 'speaker';
-        speaker.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'Session', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
+// Error: Please make the following changes to use BuiltValue:
+//
+//        1. Make field sessionLevel have non-dynamic type. If you are already specifying a type, please make sure the type is correctly imported.
