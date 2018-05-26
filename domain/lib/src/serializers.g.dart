@@ -14,4 +14,27 @@ part of 'serializers.dart';
 // ignore_for_file: prefer_expression_function_bodies
 // ignore_for_file: sort_constructors_first
 
-// Error: Stack Overflow
+Serializers _$serializers = (new Serializers().toBuilder()
+      ..add(Address.serializer)
+      ..add(Company.serializer)
+      ..add(Room.serializer)
+      ..add(Session.serializer)
+      ..add(SessionLevel.serializer)
+      ..add(Skill.serializer)
+      ..add(Speaker.serializer)
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Skill)]),
+          () => new ListBuilder<Skill>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Tags)]),
+          () => new ListBuilder<Tags>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Session)]),
+          () => new ListBuilder<Session>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(SocialMediaProfile)]),
+          () => new ListBuilder<SocialMediaProfile>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>()))
+    .build();

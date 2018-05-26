@@ -12,14 +12,17 @@ abstract class Speaker implements Built<Speaker, SpeakerBuilder> {
   String get lastName;
   String get imageUri;
   String get about;
+
   @nullable
   BuiltList<Skill> get skills;
   @nullable
   BuiltList<Tags> get tags;
   Address get address;
   Company get company;
+
   @nullable
   BuiltList<Session> get sessions;
+
   @nullable
   BuiltList<SocialMediaProfile> get socialMediaProfiles;
 

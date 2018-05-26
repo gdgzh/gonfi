@@ -9,9 +9,10 @@ part 'serializers.g.dart';
   Address,
   Company,
   Room,
-  Session,
   Skill,
+  SessionLevel,
   Speaker,
+  Session,
 ])
 final Serializers serializers =
     (_$serializers.toBuilder()..addPlugin(new StandardJsonPlugin())).build();
