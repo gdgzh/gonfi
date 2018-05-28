@@ -1,9 +1,15 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:gonfi/app/app_redux.dart';
 import 'package:gonfi/pages/speaker/reducer/speaker_reducer.dart';
-import 'package:gonfi/pages/speaker/speaker_page.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:redux/redux.dart';
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
+final GoogleSignIn _googleSignIn = new GoogleSignIn();
 
 void main() {
   runApp(new MyApp());
@@ -30,7 +36,7 @@ class MyApp extends StatelessWidget {
           // counter didn't reset back to zero; the application is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: new SpeakersPage(),
+        home: MyHomePage(title: 'Test Google Signin'),
       ),
     );
   }
@@ -57,7 +63,22 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+  Future<FirebaseUser> _handleSignIn() async {
+    print('Try to sign in...');
+    GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+    GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+    FirebaseUser user = await _auth.signInWithGoogle(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+    print("signed in " + user.displayName);
+    return user;
+  }
+
   void _incrementCounter() {
+    _handleSignIn().then((user) {
+      print('Im logged in with ${user.displayName}');
+    });
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
