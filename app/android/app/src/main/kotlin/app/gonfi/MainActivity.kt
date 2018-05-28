@@ -1,4 +1,4 @@
-package ch.gdgzh.gonfi
+package app.gonfi
 
 import android.os.Bundle
 
