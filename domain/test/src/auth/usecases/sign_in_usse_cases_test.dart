@@ -35,7 +35,8 @@ void main() {
       var credentials = new Credentials((b) => b
         ..email = ""
         ..password = "");
-      var user = await signInWithEmail.execute(credentials: credentials);
+      var user =
+          await signInWithEmail.prepare(credentials: credentials).execute();
       expect(
           verify(mockAuthService.signInWithEmailAndPassword(captureAny))
               .captured,

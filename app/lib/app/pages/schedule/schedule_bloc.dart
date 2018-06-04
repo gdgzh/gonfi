@@ -26,7 +26,7 @@ class ScheduleBloC {
     return _photoURL.stream;
   }
 
-  void singInWithGoogle() async {
+  void _singIn(UseCase<User> useCase) async {
     if (_isSigningIn) {
       await _authUseCases.signOut.execute();
       _updateState(null);
@@ -34,16 +34,16 @@ class ScheduleBloC {
     }
 
     _isSigningIn = true;
-    final user = await _authUseCases.signInWithGoogle.execute();
+    final user = await useCase.execute();
     _updateState(user);
   }
 
+  void singInWithGoogle() {
+    _singIn(_authUseCases.signInWithGoogle);
+  }
+
   void singInWithEmailAndPassword(Credentials credentials) async {
-    if (_isSigningIn) return;
-    _isSigningIn = true;
-    final user =
-        await _authUseCases.signInWithEmail.execute(credentials: credentials);
-    _updateState(user);
+    _singIn(_authUseCases.signInWithEmail.prepare(credentials: credentials));
   }
 
   void dispose() {

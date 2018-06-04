@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:gonfi_domain/domain.dart';
 import 'package:meta/meta.dart';
 
-class SignInGoogle {
+class SignInGoogle implements UseCase<User> {
   SignInGoogle({
     @required AuthService authService,
   })  : assert(authService != null),
