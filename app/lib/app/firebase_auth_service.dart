@@ -5,7 +5,9 @@ import 'package:gonfi_domain/domain.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:rxdart/rxdart.dart';
 
-//TODO move it to a data lib
+// TODO move it to a data lib
+// TODO write unit test
+// TODO write integration test
 class FirebaseAuthService implements AuthService {
   final FB.FirebaseAuth _auth;
   final GoogleSignIn _googleSignIn;

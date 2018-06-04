@@ -12,6 +12,8 @@ dependencies:
   #ui-layer
   flutter:
     sdk: flutter
+  flutter_localizations:
+      sdk: flutter
   cached_network_image: "^0.3.0"
 
 

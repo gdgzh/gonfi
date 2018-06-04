@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gonfi/app/inject/inject.dart';
+import 'package:gonfi/app/pages/schedule/schedule_aut_dialog.dart';
 import 'package:gonfi/app/pages/schedule/schedule_bloc.dart';
+import 'package:gonfi/app/widget/gonfi_dialog.dart';
+
+import 'session_list.dart';
 
 class SchedulePage extends StatefulWidget {
   @override
@@ -19,7 +23,7 @@ class SchedulePageState extends State<SchedulePage>
       body: TabBarView(
         controller: _tabController,
         children: [
-          new Center(child: Text('May 8')),
+          SessionList(),
           new Center(child: Text('May 9')),
           new Center(child: Text('May 10')),
           new Center(child: Text('Agenda')),
@@ -60,7 +64,12 @@ class SchedulePageState extends State<SchedulePage>
         icon: buildUserIcon(context),
         color: Theme.of(context).primaryColor,
         onPressed: () {
-          _bloc.singInWithGoogle();
+          showLitherDialog<bool>(
+              context: context,
+              builder: scheduleAuthDialogBuilder).then((bool result) {
+            print("Got result: $result");
+            if (result) _bloc.singInWithGoogle();
+          });
         },
       ),
       elevation: 0.0,
@@ -73,11 +82,15 @@ class SchedulePageState extends State<SchedulePage>
       bottom: TabBar(
         controller: _tabController,
         tabs: [
-          buildTab("May 8", context),
-          buildTab("May 9", context),
-          buildTab("May 10", context),
-          buildTab("Agenda", context),
+          Tab(child: Text("May 8")),
+          Tab(child: Text("May 9")),
+          Tab(child: Text("May 10")),
+          Tab(child: Text("Agenda")),
         ],
+        labelColor: Theme.of(context).textTheme.body1.color,
+        unselectedLabelColor:
+            Theme.of(context).textTheme.body1.color.withAlpha(80),
+        indicatorColor: Theme.of(context).primaryColor,
       ),
     );
   }
