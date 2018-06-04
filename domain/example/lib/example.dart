@@ -1,4 +1,4 @@
-import 'package:gonfi_domain/models.dart';
+import 'package:gonfi_domain/domain.dart';
 
 main(List<String> args) {
   companyExample();

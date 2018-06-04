@@ -6,13 +6,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:gonfi/app/gonfi_app.dart';
+import 'package:gonfi/app/inject/inject.dart';
 
-import 'package:gonfi/main.dart';
-
+final Injector injector = Injector.instance;
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(new MyApp());
+
+    await tester.pumpWidget(new GonfiApp(injector));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

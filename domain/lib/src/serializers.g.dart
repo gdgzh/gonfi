@@ -17,11 +17,14 @@ part of 'serializers.dart';
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Address.serializer)
       ..add(Company.serializer)
+      ..add(Credentials.serializer)
       ..add(Room.serializer)
       ..add(Session.serializer)
       ..add(SessionLevel.serializer)
       ..add(Skill.serializer)
       ..add(Speaker.serializer)
+      ..add(User.serializer)
+      ..add(UserInfo.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Skill)]),
           () => new ListBuilder<Skill>())
@@ -36,5 +39,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
           () => new ListBuilder<SocialMediaProfile>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>()))
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(Set, const [const FullType(Session)]),
+          () => new SetBuilder<Session>()))
     .build();

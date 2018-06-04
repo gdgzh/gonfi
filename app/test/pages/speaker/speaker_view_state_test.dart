@@ -1,5 +1,5 @@
-import 'package:gonfi/pages/speaker/speaker_view_state.dart';
-import 'package:gonfi_domain/models.dart';
+import 'package:gonfi/app/pages/speaker/speaker_view_state.dart';
+import 'package:gonfi_domain/src/entities.dart';
 import 'package:test/test.dart';
 
 void main() {
