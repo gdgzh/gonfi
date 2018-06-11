@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "121643283812",
+    "firebase_url": "https://gonfi-dev.firebaseio.com",
+    "project_id": "gonfi-dev",
+    "storage_bucket": "gonfi-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:121643283812:android:181e710894e62a3c",
+        "android_client_info": {
+          "package_name": "app.gonfi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "121643283812-h1tq6gecg7a6kf87n4241j0ci4ta4s7p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.gonfi",
+            "certificate_hash": "327837a1786612f8b26a86bfc58b2102dea24220"
+          }
+        },
+        {
+          "client_id": "121643283812-k2h20d7fhnqc7mk6fbtee4rb7hb9kesb.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "121643283812-k2h20d7fhnqc7mk6fbtee4rb7hb9kesb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj7-JDe9zzzc3DFp9ruHzMgExkMMRLyyA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "121643283812-k2h20d7fhnqc7mk6fbtee4rb7hb9kesb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

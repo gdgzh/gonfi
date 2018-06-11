@@ -1,0 +1,7 @@
+{
+  "schedule_page__auth_dialog_not_now_button" : "Nicht jetzt",
+  "schedule_page__auth_dialog_sig_in_button" :"Anmelden",
+  "schedule_page__auth_dialog_message":"Melden Sie sich an, um Ereignisse zu speichern, Sitzplätze zu reservieren und Sitzungen zu bewerten (falls ein Teilnehmer anwesend ist). Aktionen werden von Ihrem Konto aus über App und Website synchronisiert.",
+  "schedule_page__auth_dialog_title":"Melden Sie sich an, um Ihren Zeitplan erstellen",
+  "tabLabel":"tabLabel"
+}

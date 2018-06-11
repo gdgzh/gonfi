@@ -1,0 +1,6 @@
+{
+  "schedule_page__auth_dialog_not_now_button" : "Not now",
+  "schedule_page__auth_dialog_sig_in_button" :"Sign in",
+  "schedule_page__auth_dialog_message":"Sign in to save events, reserve seats and rate sessions (if an attendee). Actions will be synced from your account across app and site.",
+  "schedule_page__auth_dialog_title":"Sign in to customize your schedule"
+}
