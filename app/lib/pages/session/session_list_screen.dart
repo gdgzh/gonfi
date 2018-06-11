@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gonfi/domain/models.dart';
 import 'package:gonfi/pages/session/session_list_item.dart';
+import 'package:gonfi_domain/models.dart';
 import 'package:meta/meta.dart';
 
 class SessionListScreen extends StatelessWidget {

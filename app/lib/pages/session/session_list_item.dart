@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gonfi/app/theme.dart';
-import 'package:gonfi/domain/model/sessions.dart';
-import 'package:gonfi/domain/model/speaker.dart';
 import 'package:gonfi/widget/tag.dart';
 import 'package:gonfi/widget/time_widget.dart';
+import 'package:gonfi_domain/models.dart';
 import 'package:meta/meta.dart';
 
 class SessionListItem extends StatelessWidget {
@@ -43,7 +42,7 @@ class SessionListItem extends StatelessWidget {
                 new Padding(
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: new Text(
-                    this.session.title,
+                    this.session.topic,
                     style: Theme.of(context).textTheme.title,
                   ),
                 ),
@@ -54,7 +53,7 @@ class SessionListItem extends StatelessWidget {
                 new Padding(
                   padding: const EdgeInsets.only(top: 40.0),
                   child: new Row(
-                    children: this.createTags(this.session.tags),
+                    children: this.createTags(this.session.tags?.toList()),
                   ),
                 ),
               ],
@@ -68,7 +67,7 @@ class SessionListItem extends StatelessWidget {
 
   List<Tag> createTags(List<String> tagStrings) {
     List<Tag> tags = new List();
-    tagStrings.forEach((tag) => tags.add(new Tag(
+    tagStrings?.forEach((tag) => tags.add(new Tag(
           text: tag,
           color: GonfiThemeData.accentColor,
         )));
@@ -117,6 +116,7 @@ class _SessionSpeakerItem extends StatelessWidget {
       color: this.color,
       child: new ListTile(
         leading: new CircleAvatar(
+          //TODO: Add placeholder image for speaker. Otherwise this might lead to a crash!
           backgroundImage: new NetworkImage(speaker.imageUri),
         ),
         title: new Text(

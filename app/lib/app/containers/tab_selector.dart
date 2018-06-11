@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:gonfi/app/active_page.dart';
+import 'package:gonfi/app/active_page_actions.dart';
 import 'package:gonfi/app/app_redux.dart';
-import 'package:gonfi/domain/active_page_actions.dart';
-import 'package:gonfi/domain/models.dart';
 import 'package:meta/meta.dart';
 import 'package:redux/redux.dart';
 

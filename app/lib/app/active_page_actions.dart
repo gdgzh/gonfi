@@ -1,4 +1,4 @@
-import 'package:gonfi/domain/models.dart';
+import 'package:gonfi/app/active_page.dart';
 
 class UpdatePageAction {
   final ActivePage activePage;

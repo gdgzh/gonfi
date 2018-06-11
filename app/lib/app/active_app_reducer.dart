@@ -1,5 +1,5 @@
-import 'package:gonfi/domain/active_page_actions.dart';
-import 'package:gonfi/domain/models.dart';
+import 'package:gonfi/app/active_page.dart';
+import 'package:gonfi/app/active_page_actions.dart';
 import 'package:redux/redux.dart';
 
 final activePageReducer = combineReducers<ActivePage>([

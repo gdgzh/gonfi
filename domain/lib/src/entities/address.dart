@@ -10,10 +10,13 @@ abstract class Address implements Built<Address, AddressBuilder> {
   String get street2;
   @nullable
   String get street3;
-
+  @nullable
   String get city;
+  @nullable
   String get state;
+  @nullable
   String get zip;
+  @nullable
   String get country;
 
   factory Address([updates(AddressBuilder b)]) = _$Address;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:gonfi/app/app_redux.dart';
-import 'package:gonfi/domain/models.dart';
 import 'package:gonfi/pages/session/session_actions.dart';
 import 'package:gonfi/pages/session/session_list_screen.dart';
+import 'package:gonfi_domain/models.dart';
 import 'package:redux/redux.dart';
 
 class SessionListContainer extends StatelessWidget {

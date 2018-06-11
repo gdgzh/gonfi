@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gonfi/app/active_page.dart';
 import 'package:gonfi/app/containers/main_tabs_container.dart';
 import 'package:gonfi/app/containers/tab_selector.dart';
-import 'package:gonfi/domain/model/active_page.dart';
 import 'package:gonfi/pages/session/session_list_container.dart';
 import 'package:gonfi/pages/speaker/speaker_page.dart';
 
