@@ -1,82 +1,31 @@
 import 'package:flutter/material.dart';
 
+import 'session_tile.dart';
+
 class SessionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final textTheme = theme.textTheme;
-
+    int add = 0;
+    var lastTime = "";
+    final sessions = List<Widget>.generate(30, (int index) {
+      var time = "${9+add}:00";
+      if (index % 3 == 0) add++;
+      var sessionTile = SessionTile(
+        title: "Registration ${index+1}",
+        time: time,
+        hideTime: time == lastTime,
+        subTitle: "1.5 hours / Bla",
+        onTap: () {},
+      );
+      print("Should hide time : $lastTime == $time = ${time == lastTime}");
+      lastTime = time;
+      return sessionTile;
+    });
     return Padding(
       padding: const EdgeInsets.only(top: 4.0),
       child: ListView(
-        children: [
-          buildListItem(textTheme, theme),
-          buildListItem(textTheme, theme),
-          buildListItem(textTheme, theme),
-        ],
-      ),
-    );
-  }
-
-  Container buildListItem(TextTheme textTheme, ThemeData theme) {
-    return Container(
-      margin: const EdgeInsets.only(left: 16.0),
-      height: 70.0,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "08:00",
-            style: textTheme.body1
-                .merge(TextStyle(color: theme.primaryColor, fontSize: 18.0)),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    "Regsistration",
-                    style: textTheme.subhead,
-                  ),
-                  Text(
-                    "1.5 hour / Registrationdesk",
-                    style: textTheme.body2,
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.greenAccent,
-                        ),
-                        width: 12.0,
-                        height: 12.0,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 4.0),
-                        child: Text(
-                          'Keynote',
-                          style: textTheme.body2,
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.star_border,
-              color: theme.primaryColor,
-            ),
-            padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
-            onPressed: () {},
-          )
-        ],
+        controller: ScrollController(),
+        children: sessions,
       ),
     );
   }

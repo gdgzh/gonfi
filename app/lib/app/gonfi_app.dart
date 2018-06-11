@@ -17,8 +17,12 @@ class GonfiApp extends StatelessWidget {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(6.0))),
     );
-    var textTheme =
-        TextTheme(body2: TextStyle(color: Colors.black.withAlpha(80)));
+    var textTheme = TextTheme(
+      body2: TextStyle(
+        color: Colors.black.withAlpha(80),
+        fontWeight: FontWeight.w300,
+      ),
+    );
     return InjectorProvider(
       injector: _injector,
       child: MaterialApp(
@@ -32,6 +36,7 @@ class GonfiApp extends StatelessWidget {
             S.delegate.resolution(fallback: Locale("en", "")),
         title: 'Gonfi',
         theme: ThemeData(
+          fontFamily: 'LibreFranklin',
           buttonTheme: buttonTheme.data,
           textTheme: textTheme,
           primaryColor: primaryColor,

@@ -7,6 +7,8 @@ abstract class Skill implements Built<Skill, SkillBuilder> {
   Skill._();
   String get name;
   int get color;
+  @nullable
+  String get description;
 
   factory Skill([updates(SkillBuilder b)]) = _$Skill;
 
