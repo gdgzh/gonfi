@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:gonfi/app/pages/speaker/reducer/speaker_reducer.dart';
-import 'package:gonfi/app/pages/speaker/speaker_list.dart';
-import 'package:gonfi/app/redux_app/app_redux.dart';
-import 'package:gonfi_domain/domain.dart';
-import 'package:redux/redux.dart';
 
 class SpeakersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new StoreConnector<AppState, List<Speaker>>(
+    return null;
+    /*new StoreConnector<AppState, List<Speaker>>(
       converter: fromStore,
       builder: (context, vm) {
         return new Scaffold(
@@ -20,10 +15,10 @@ class SpeakersPage extends StatelessWidget {
           body: new SpeakerList(speakers: vm),
         );
       },
-    );
+    );*/
   }
 
-  static List<Speaker> fromStore(Store<AppState> store) {
+  /* static List<Speaker> fromStore(Store<AppState> store) {
     return createSpeaker(); //store.state.speakers;
-  }
+  }*/
 }

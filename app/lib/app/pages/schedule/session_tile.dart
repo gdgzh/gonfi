@@ -17,7 +17,6 @@ class SessionTile extends StatefulWidget {
   final bool isFavor;
   final VoidCallback onTap;
   final bool hideTime;
-
   @override
   SessionTileState createState() {
     return SessionTileState();
@@ -25,15 +24,8 @@ class SessionTile extends StatefulWidget {
 }
 
 class SessionTileState extends State<SessionTile> {
-  updatePosition() {
-    final renderBox = context.findRenderObject() as RenderBox;
-    if (renderBox == null) return;
-    print('My render box ${renderBox.globalToLocal(const Offset(0.0, 0.0))}');
-  }
-
   @override
   Widget build(BuildContext context) {
-    updatePosition();
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
 
@@ -43,11 +35,14 @@ class SessionTileState extends State<SessionTile> {
   Container buildTile(TextTheme textTheme, ThemeData theme) {
     return Container(
       margin: const EdgeInsets.only(left: 16.0),
-      height: 70.0,
+      height: 72.0,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          buildTime(textTheme, theme),
+          Time(
+            time: widget.time,
+            hideTime: widget.hideTime,
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(left: 8.0),
@@ -114,16 +109,39 @@ class SessionTileState extends State<SessionTile> {
       ],
     );
   }
+}
 
-  Widget buildTime(TextTheme textTheme, ThemeData theme) {
+class Time extends StatelessWidget {
+  final String time;
+  final bool hideTime;
+  const Time({Key key, this.time, this.hideTime = false}) : super(key: key);
+
+  updatePosition(BuildContext context) {
+    final renderBox = context.findRenderObject() as RenderBox;
+    if (renderBox == null) return;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
     var textStyle = textTheme.body1
         .merge(TextStyle(color: theme.primaryColor, fontSize: 18.0));
-    if (widget.hideTime) {
+    if (hideTime) {
       textStyle = textStyle.merge(TextStyle(color: Colors.transparent));
-    }
-    return Text(
-      widget.time,
-      style: textStyle,
+    } else {}
+    updatePosition(context);
+    return Container(
+      width: 50.0,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Text(
+            time,
+            style: textStyle,
+          )
+        ],
+      ),
     );
   }
 }

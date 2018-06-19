@@ -1,6 +1,6 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:gonfi_domain/models.dart';
+import 'package:gonfi_domain/domain.dart';
 
 part 'company.g.dart';
 

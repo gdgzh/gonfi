@@ -1,11 +1,8 @@
-import 'package:gonfi/app/pages/speaker/speaker_actions.dart';
-import 'package:gonfi/app/redux_app/app_state.dart';
-import 'package:gonfi_domain/src/entities.dart';
-import 'package:redux/redux.dart';
+import 'package:gonfi_domain/domain.dart';
 
-AppState loadReducer(AppState state, LoadSpeakersAction action) {
+/*AppState loadReducer(AppState state, LoadSpeakersAction action) {
   return state.copyWith(speakers: createSpeaker());
-}
+}*/
 
 List<Speaker> createSpeaker() {
   final addressBuilder = new AddressBuilder()
@@ -80,5 +77,5 @@ List<Speaker> createSpeaker() {
   ];
 }
 
-final speakerReducer = combineReducers<AppState>(
-    [new TypedReducer<AppState, LoadSpeakersAction>(loadReducer)]);
+/*final speakerReducer = combineReducers<AppState>(
+    [new TypedReducer<AppState, LoadSpeakersAction>(loadReducer)]);*/

@@ -1,8 +1,7 @@
 import 'package:gonfi/app/auth_use_cases.dart';
 import 'package:gonfi/app/firebase_auth_service.dart';
 import 'package:gonfi/app/pages/schedule/schedule_bloc.dart';
-import 'package:gonfi_domain/src/services.dart';
-import 'package:gonfi_domain/src/usecases.dart';
+import 'package:gonfi_domain/domain.dart';
 
 class Injector {
   Injector._();

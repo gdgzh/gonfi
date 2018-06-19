@@ -7,5 +7,12 @@ class SessionViewModel {
   final String subTitle;
   final bool isFavor;
 
-  SessionViewModel(this.title, this.time, this.subTitle, this.isFavor);
+  SessionViewModel(
+      {@required this.title,
+      @required this.time,
+      @required this.subTitle,
+      this.isFavor = false})
+      : assert(title != null),
+        assert(time != null),
+        assert(subTitle != null);
 }

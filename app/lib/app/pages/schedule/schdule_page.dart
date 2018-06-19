@@ -23,7 +23,9 @@ class SchedulePageState extends State<SchedulePage>
       body: TabBarView(
         controller: _tabController,
         children: [
-          SessionList(),
+          SessionList(
+            sessionViewModels: _bloc.getSessions(),
+          ),
           new Center(child: Text('May 9')),
           new Center(child: Text('May 10')),
           new Center(child: Text('Agenda')),

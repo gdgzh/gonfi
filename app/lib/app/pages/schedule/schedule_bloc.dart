@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:gonfi/app/auth_use_cases.dart';
+import 'package:gonfi/app/pages/schedule/session_view_model.dart';
 import 'package:gonfi_domain/domain.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -20,6 +21,19 @@ class ScheduleBloC {
     _user = user;
     _userSubject.add(user);
     _photoURL.add(_user?.userInfo?.photoUrl);
+  }
+
+  List<SessionViewModel> getSessions() {
+    int add = 0;
+    final sessions = List<SessionViewModel>.generate(30, (int index) {
+      if (index % 3 == 0) add++;
+      return SessionViewModel(
+        title: "Registration ${index+1}",
+        time: "${8+add}:00",
+        subTitle: "1.5 hours / Bla",
+      );
+    });
+    return sessions;
   }
 
   Stream<String> get photoUrl {
